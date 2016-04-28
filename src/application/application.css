@@ -1,0 +1,27 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+@font-face {
+
+	src: url('../../fonts/8bit.ttf');
+
+}
+
+.root {
+
+	-fx-background-color: white; /*#1E1E1E */
+
+}
+
+Label {
+
+	-fx-text-fill: purple;
+
+}
+
+#logoLabel {
+
+	-fx-font-family: "8bit";
+	-fx-font-size: 30px;
+
+}
+
