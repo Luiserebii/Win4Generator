@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,6 +18,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class GUIController implements Initializable {
+
+
+	Win4Generator wg;
 
 	@FXML
 	private ImageView logoImage;
@@ -42,7 +46,9 @@ public class GUIController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		writeToPane(new int[] {1,2,6,7});
+		//writeToPane(new int[] {1,2,6,7});
+		wg = new Win4Generator();
+		wg.updateWinningNumbers();
 
 	}
 
@@ -67,6 +73,16 @@ public class GUIController implements Initializable {
 	            }
 	        }
 	        return result;
+	 }
+
+	 @FXML
+	 public void enterButton(){
+		 generateButton.getScene().setCursor(Cursor.HAND);
+	 }
+
+	 @FXML
+	 public void leaveButton(){
+		 generateButton.getScene().setCursor(Cursor.DEFAULT);
 	 }
 
 

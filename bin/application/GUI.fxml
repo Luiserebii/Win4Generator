@@ -23,9 +23,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <ImageView fx:id="logoImage" fitHeight="130.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -41,14 +41,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField alignment="TOP_LEFT" maxWidth="30.0" text="1" GridPane.halignment="CENTER" />
-                  <TextField alignment="TOP_LEFT" maxWidth="30.0" text="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                  <TextField alignment="TOP_LEFT" maxWidth="30.0" text="3" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                  <TextField alignment="TOP_LEFT" maxWidth="30.0" text="4" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                  <TextField alignment="TOP_LEFT" maxWidth="30.0" GridPane.halignment="CENTER" />
+                  <TextField alignment="TOP_LEFT" maxWidth="30.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <TextField alignment="TOP_LEFT" maxWidth="30.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                  <TextField alignment="TOP_LEFT" maxWidth="30.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
-            <Button fx:id="generateButton" mnemonicParsing="false" text="Generate!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Button fx:id="updateButton" mnemonicParsing="false" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Button fx:id="generateButton" mnemonicParsing="false" onMouseEntered="#enterButton" onMouseExited="#leaveButton" text="Generate!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Button fx:id="updateButton" mnemonicParsing="false" onMouseEntered="#enterButton" onMouseExited="#leaveButton" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label id="dateLabel" fx:id="dateLabel" text="Latest Win4 Date:  /  /  " GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <Label layoutX="-367.0" layoutY="6.0" text="Label" />

@@ -25,3 +25,19 @@ Label {
 
 }
 
+Button {
+
+	-fx-text-fill: purple;
+	/*-fx-background-color: silver;*/
+	-fx-background-color: #DDDDDD;
+}
+
+Button:hover {
+	-fx-background-color: #BBBBBB;
+}
+
+#dateLabel {
+
+	-fx-font-size: 12px;
+
+}
