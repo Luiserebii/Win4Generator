@@ -7,10 +7,15 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Win4Generator {
 
@@ -24,7 +29,7 @@ public class Win4Generator {
 			driver = new FirefoxDriver();
 
 			driver.navigate().to("http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/winning+numbers/win4pastwinning+numbers");
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 			driver.switchTo().frame("Winners_NumberTracker");
 
@@ -46,23 +51,41 @@ public class Win4Generator {
 			endMonth.selectByIndex(monthNum);
 
 			enterButton.click();
-			
+
 			//THIS IS WHERE THINGS ARE ODD; TRY TO COMMENT OUT THIS TRY BLOCK AND SEE THE EXCEPTION THAT HAPPENS
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			List<WebElement> tableRows = driver.findElements(By.cssSelector("#winningNumbersTable tbody td"));
+
 			PrintWriter writer = new PrintWriter("data/winners.txt");
 
-			for(WebElement we : tableRows){
-				writer.println(we.getText());
-				writer.flush();
-			}
+			int pageCnt = Integer.valueOf(driver.findElement(By.id("totalPage")).getText());
 
+			System.out.println(pageCnt);
+
+			for(int i = 1; i < pageCnt + 1; i++){
+
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				List<WebElement> tableRows = driver.findElements(By.cssSelector("#winningNumbersTable tbody td"));
+
+				for(WebElement we : tableRows){
+					writer.println(we.getText());
+					writer.flush();
+				}
+
+				WebElement nextButton = driver.findElement(By.id("next"));
+				nextButton.click();
+			}
 			writer.close();
 			driver.close();
 			System.out.println("FINISHED!");
@@ -74,23 +97,5 @@ public class Win4Generator {
 
 	}
 
-	 public WebElement find(By by){
-		 WebElement foundElement = null;
-		    for (int milis=0; milis<3000; milis=milis+200){
-		       try{
-		       foundElement = driver.findElement(by);
-
-		       }catch(Exception e){
-		         try {
-					Thread.sleep(200);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		       }
-
-		     }
-		    return foundElement;
-		 }
 
 }
