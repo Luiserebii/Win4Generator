@@ -62,10 +62,9 @@ public class Win4Generator {
 
 
 			PrintWriter writer = new PrintWriter("data/winners.txt");
-
 			int pageCnt = Integer.valueOf(driver.findElement(By.id("totalPage")).getText());
 
-			System.out.println(pageCnt);
+			System.out.println("PAGECNT: " + pageCnt);
 
 			for(int i = 1; i < pageCnt + 1; i++){
 
@@ -83,8 +82,11 @@ public class Win4Generator {
 					writer.flush();
 				}
 
-				WebElement nextButton = driver.findElement(By.id("next"));
-				nextButton.click();
+				if(i != pageCnt){
+					WebElement nextButton = driver.findElement(By.id("next"));
+					nextButton.click();
+				}
+				System.out.println("Page " + i + " processed!");
 			}
 			writer.close();
 			driver.close();
