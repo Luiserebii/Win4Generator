@@ -1,4 +1,4 @@
-package application;
+package win4;
 
 public class LottoNum {
 

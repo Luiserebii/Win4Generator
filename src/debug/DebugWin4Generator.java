@@ -1,6 +1,8 @@
-package application;
+package debug;
 
 import java.util.Scanner;
+
+import win4.Win4Generator;
 
 public class DebugWin4Generator {
 

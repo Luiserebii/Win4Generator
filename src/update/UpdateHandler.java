@@ -1,4 +1,4 @@
-package application;
+package update;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -15,9 +15,9 @@ import org.openqa.selenium.support.ui.Select;
 public class UpdateHandler {
 
 	private WebDriver driver;
-	private UpdateController uc;
+	private UpdateGUIController uc;
 
-	public UpdateHandler(UpdateController inUC){
+	public UpdateHandler(UpdateGUIController inUC){
 		uc = inUC;
 	}
 

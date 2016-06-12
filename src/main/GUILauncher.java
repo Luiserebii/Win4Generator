@@ -1,4 +1,4 @@
-package application;
+package main;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +10,9 @@ public class GUILauncher {
 	public void updatePopup(){
 		try {
 			Stage s = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("UpdateGUI.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/UpdateGUI.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("../view/application.css").toExternalForm());
 			s.setTitle("Updating...");
 			s.setScene(scene);
 			s.show();
@@ -24,9 +24,9 @@ public class GUILauncher {
 	public void settingsPopup(){
 		try {
 			Stage s = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("SettingsGUI.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/SettingsGUI.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("../view/application.css").toExternalForm());
 			s.setTitle("Settings");
 			s.setScene(scene);
 			s.show();
