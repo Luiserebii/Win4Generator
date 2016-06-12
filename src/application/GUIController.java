@@ -103,5 +103,10 @@ public class GUIController implements Initializable {
 		 gl.settingsPopup();
 	 }
 
+	 @FXML
+	 public void updatePopup(){
+		 gl.updatePopup();
+	 }
+
 
 }

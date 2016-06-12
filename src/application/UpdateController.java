@@ -10,7 +10,6 @@ import javafx.scene.control.ProgressBar;
 
 public class UpdateController implements Initializable {
 
-
 	public UpdateHandler uh;
 
 	@FXML
@@ -25,10 +24,11 @@ public class UpdateController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		uh = new UpdateHandler();
+		uh = new UpdateHandler(this);
+		uh.updateWinningNumbers();
 	}
 
-	public void setProgress(double x){ //takes double 0.00, sets updateBar and percentageLabel
+	public void setProgress(double x){ //takes double 0.00, sets updateBar and percentageLabel - 0.00 to 1.0
 		updateBar.setProgress(x);
 		percentageLabel.setText(Double.toString(x*100) + "%");
 	}
