@@ -33,7 +33,7 @@ public class Win4Generator {
 
 	public Win4Generator(){
 		prevLottoNums = new ArrayList<LottoNum>();
-		isOrderMatters = false;
+		isOrderMatters = true;
 	}
 
 	public void updateWinningNumbers(){

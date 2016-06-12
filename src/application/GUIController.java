@@ -21,8 +21,8 @@ import javafx.scene.layout.GridPane;
 
 public class GUIController implements Initializable {
 
-
 	Win4Generator wg;
+	GUILauncher gl;
 
 	@FXML
 	private ImageView logoImage;
@@ -67,6 +67,8 @@ public class GUIController implements Initializable {
 //		DebugWin4Generator debug = new DebugWin4Generator();
 //		debug.loadStuff();
 //		debug.debugLottoNums();
+
+		gl = new GUILauncher();
 	}
 
 	public void writeToPane(int[] inArr){
@@ -96,6 +98,11 @@ public class GUIController implements Initializable {
 	 public void generateLottoNums(){
 		 int[] lottoNums = wg.generateLottoNums();
 		 writeToPane(lottoNums);
+	 }
+
+	 @FXML
+	 public void openSettings(){
+		 gl.settingsPopup();
 	 }
 
 

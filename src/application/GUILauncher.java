@@ -27,7 +27,7 @@ public class GUILauncher {
 			Parent root = FXMLLoader.load(getClass().getResource("SettingsGUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			s.setTitle("Updating...");
+			s.setTitle("Settings");
 			s.setScene(scene);
 			s.show();
 		} catch(Exception e) {
