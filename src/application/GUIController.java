@@ -54,8 +54,6 @@ public class GUIController implements Initializable {
 			imgView.setFitWidth(40);
 			imgView.setFitHeight(40);
 			settingsButton.setGraphic(imgView);
-			settingsButton.setPadding(Insets.EMPTY); /*This styling stuff should be moved to .css*/
-			settingsButton.setBorder(null);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

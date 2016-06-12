@@ -25,6 +25,12 @@ Label {
 
 }
 
+#dateLabel {
+
+	-fx-font-size: 12px;
+
+}
+
 Button {
 
 	-fx-text-fill: purple;
@@ -37,8 +43,15 @@ Button:hover {
 	-fx-cursor: hand;
 }
 
-#dateLabel {
+/*------------------Settings GUI Styling---------------------*/
 
-	-fx-font-size: 12px;
+#settingsLabel {
+	-fx-font-family: "8bit";
+	-fx-font-size: 40px;
+}
+
+#settingsButton {
+
+	-fx-padding: 0;
 
 }
