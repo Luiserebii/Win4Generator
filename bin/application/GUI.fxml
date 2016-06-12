@@ -47,7 +47,7 @@
                   <TextField alignment="TOP_LEFT" maxWidth="30.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
-            <Button fx:id="generateButton" mnemonicParsing="false" onMouseEntered="#enterButton" onMouseExited="#leaveButton" text="Generate!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Button fx:id="generateButton" mnemonicParsing="false" onAction="#generateLottoNums" onMouseEntered="#enterButton" onMouseExited="#leaveButton" text="Generate!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
             <Button fx:id="updateButton" mnemonicParsing="false" onMouseEntered="#enterButton" onMouseExited="#leaveButton" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
             <Label id="dateLabel" fx:id="dateLabel" text="Latest Win4 Date:  /  /  " GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>

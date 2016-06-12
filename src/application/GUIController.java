@@ -49,10 +49,11 @@ public class GUIController implements Initializable {
 		//writeToPane(new int[] {1,2,6,7});
 		wg = new Win4Generator();
 		//wg.updateWinningNumbers();
+		wg.loadPrevLottoNums();
 
-		DebugWin4Generator debug = new DebugWin4Generator();
-		debug.loadStuff();
-		debug.debugLottoNums();
+//		DebugWin4Generator debug = new DebugWin4Generator();
+//		debug.loadStuff();
+//		debug.debugLottoNums();
 	}
 
 	public void writeToPane(int[] inArr){
@@ -88,6 +89,11 @@ public class GUIController implements Initializable {
 		 generateButton.getScene().setCursor(Cursor.DEFAULT);
 	 }
 
+	 @FXML
+	 public void generateLottoNums(){
+		 int[] lottoNums = wg.generateLottoNums();
+		 writeToPane(lottoNums);
+	 }
 
 
 }
