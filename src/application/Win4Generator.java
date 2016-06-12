@@ -29,8 +29,11 @@ public class Win4Generator {
 	private WebDriver driver;
 	private ArrayList<LottoNum> prevLottoNums;
 
+	public static boolean isOrderMatters; //to allow access from settings; considering making class Singleton, with static stuff
+
 	public Win4Generator(){
 		prevLottoNums = new ArrayList<LottoNum>();
+		isOrderMatters = false;
 	}
 
 	public void updateWinningNumbers(){
@@ -145,20 +148,28 @@ public class Win4Generator {
 
 	public boolean checkOldLottoNums(int[] lottoNums){
 		boolean isOldLottoNums = false;
-		int[] sortedLottoNums = new int[lottoNums.length];
-		System.arraycopy(lottoNums, 0, sortedLottoNums, 0, lottoNums.length); //make true copy, otherwise just passing a reference - want to keep unordered for nums to seem random
-		Arrays.sort(sortedLottoNums); //sort first to check for true equivalency
-		//System.out.println(intArrToString(sortedLottoNums));
+		if(!isOrderMatters){
+			int[] sortedLottoNums = new int[lottoNums.length];
+			System.arraycopy(lottoNums, 0, sortedLottoNums, 0, lottoNums.length); //make true copy, otherwise just passing a reference - want to keep unordered for nums to seem random
+			Arrays.sort(sortedLottoNums); //sort first to check for true equivalency
+			//System.out.println(intArrToString(sortedLottoNums));
 
-		for(int i = 0; i < prevLottoNums.size(); i++){
-			int[] oldNumsRef = prevLottoNums.get(i).getLottoNums();
-			int[] sortedOldNums = new int[oldNumsRef.length];
-			System.arraycopy(oldNumsRef, 0, sortedOldNums, 0, oldNumsRef.length);
-			Arrays.sort(sortedOldNums); //same note as above
-			//System.out.println(intArrToString(sortedOldNums));
-			if(Arrays.equals(sortedLottoNums, sortedOldNums)){
-				isOldLottoNums = true;
-				//System.out.println("RED FLAG BRUH");
+			for(int i = 0; i < prevLottoNums.size(); i++){
+				int[] oldNumsRef = prevLottoNums.get(i).getLottoNums();
+				int[] sortedOldNums = new int[oldNumsRef.length];
+				System.arraycopy(oldNumsRef, 0, sortedOldNums, 0, oldNumsRef.length);
+				Arrays.sort(sortedOldNums); //same note as above
+				//System.out.println(intArrToString(sortedOldNums));
+				if(Arrays.equals(sortedLottoNums, sortedOldNums)){
+					isOldLottoNums = true;
+					//System.out.println("RED FLAG BRUH");
+				}
+			}
+		} else { //for order mattering...
+			for(int i = 0; i < prevLottoNums.size(); i++){
+				if(Arrays.equals(lottoNums, prevLottoNums.get(i).getLottoNums())){
+					isOldLottoNums = true;
+				}
 			}
 		}
 

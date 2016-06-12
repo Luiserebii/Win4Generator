@@ -60,7 +60,6 @@ public class GUIController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//writeToPane(new int[] {1,2,6,7});
 		wg = new Win4Generator();
 		//wg.updateWinningNumbers();
 		wg.loadPrevLottoNums();
