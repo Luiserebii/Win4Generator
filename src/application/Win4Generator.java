@@ -145,15 +145,18 @@ public class Win4Generator {
 
 	public boolean checkOldLottoNums(int[] lottoNums){
 		boolean isOldLottoNums = false;
-		int[] sortedLottoNums = lottoNums;
+		int[] sortedLottoNums = new int[lottoNums.length];
+		System.arraycopy(lottoNums, 0, sortedLottoNums, 0, lottoNums.length); //make true copy, otherwise just passing a reference - want to keep unordered for nums to seem random
 		Arrays.sort(sortedLottoNums); //sort first to check for true equivalency
 		//System.out.println(intArrToString(sortedLottoNums));
 
 		for(int i = 0; i < prevLottoNums.size(); i++){
-			int[] sortedOldNums = prevLottoNums.get(i).getLottoNums();
+			int[] oldNumsRef = prevLottoNums.get(i).getLottoNums();
+			int[] sortedOldNums = new int[oldNumsRef.length];
+			System.arraycopy(oldNumsRef, 0, sortedOldNums, 0, oldNumsRef.length);
 			Arrays.sort(sortedOldNums); //same note as above
 			//System.out.println(intArrToString(sortedOldNums));
-			if(Arrays.equals(lottoNums, sortedOldNums)){
+			if(Arrays.equals(sortedLottoNums, sortedOldNums)){
 				isOldLottoNums = true;
 				//System.out.println("RED FLAG BRUH");
 			}

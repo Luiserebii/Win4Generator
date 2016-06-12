@@ -52,7 +52,7 @@ public class GUIController implements Initializable {
 
 		DebugWin4Generator debug = new DebugWin4Generator();
 		debug.loadStuff();
-		debug.debugCheckOldLottoNums();
+		debug.debugLottoNums();
 	}
 
 	public void writeToPane(int[] inArr){

@@ -56,6 +56,29 @@ public class DebugWin4Generator {
 		}
 	}
 
+	public void debugLottoNums(){
+
+		System.out.println("Debugging lotto nums... Type in a number, get that many lotto nums");
+		boolean isRunning = true;
+		String input;
+		while(isRunning){
+			input = sc.nextLine();
+			try {
+				int cnt = Integer.valueOf(input);
+				for(int i = 0; i < cnt; i++){
+					int[] temp = wg.generateLottoNums();
+					System.out.println(intArrToString(temp));
+				}
+			} catch (Exception e){
+				if(input.equals("quit")){
+					isRunning = false;
+				} else {
+					System.out.println("Error occured - check input (Type \"quit\" to quit)");
+				}
+			}
+		}
+	}
+
 
 	public int[] inputToIntArr(String in){
 
