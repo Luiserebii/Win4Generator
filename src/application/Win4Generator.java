@@ -1,8 +1,13 @@
 package application;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -19,8 +24,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Win4Generator {
 
+	private WebDriver driver;
+	private ArrayList<LottoNum> prevLottoNums;
 
-	WebDriver driver;
+	public Win4Generator(){
+		prevLottoNums = new ArrayList<LottoNum>();
+	}
 
 	public void updateWinningNumbers(){
 
@@ -98,6 +107,32 @@ public class Win4Generator {
 		}
 
 	}
+
+	public void loadPrevLottoNums(){
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("data/winners.txt"));
+			String currLine = null;
+			while ((currLine = reader.readLine()) != null){
+				String d = currLine;
+				String[] tempNums = reader.readLine().trim().split("-");
+				//Convert String[] to proper int[]... NOTE: Insert as local LottoNum constructor?
+				int[] nums = new int[4];
+				for(int i = 0; i < tempNums.length; i++){
+					nums[i] = Integer.valueOf(tempNums[i]);
+				}
+				prevLottoNums.add(new LottoNum(d, nums));
+				reader.readLine();
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+
 
 
 }
