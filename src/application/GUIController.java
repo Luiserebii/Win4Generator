@@ -6,8 +6,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -37,11 +39,23 @@ public class GUIController implements Initializable {
 	@FXML
 	private Button updateButton;
 
+	@FXML
+	private Button settingsButton;
+
+	@FXML
+	private ImageView settingsImage;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		try {
 			logoImage.setImage(new Image(new File("img/win4.png").toURI().toURL().toString()));
+			ImageView imgView = new ImageView(new Image(new File("img/settings_gear2.png").toURI().toURL().toString(), 40, 40, true, true));
+			imgView.setFitWidth(40);
+			imgView.setFitHeight(40);
+			settingsButton.setGraphic(imgView);
+			settingsButton.setPadding(Insets.EMPTY); /*This styling stuff should be moved to .css*/
+			settingsButton.setBorder(null);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,16 +91,6 @@ public class GUIController implements Initializable {
 	            }
 	        }
 	        return result;
-	 }
-
-	 @FXML
-	 public void enterButton(){
-		 generateButton.getScene().setCursor(Cursor.HAND);
-	 }
-
-	 @FXML
-	 public void leaveButton(){
-		 generateButton.getScene().setCursor(Cursor.DEFAULT);
 	 }
 
 	 @FXML
