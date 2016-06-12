@@ -50,6 +50,9 @@ public class GUIController implements Initializable {
 		wg = new Win4Generator();
 		//wg.updateWinningNumbers();
 
+		DebugWin4Generator debug = new DebugWin4Generator();
+		debug.loadStuff();
+		debug.debugCheckOldLottoNums();
 	}
 
 	public void writeToPane(int[] inArr){

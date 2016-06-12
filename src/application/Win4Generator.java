@@ -6,9 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -132,7 +134,51 @@ public class Win4Generator {
 
 	}
 
+	public int[] generateLottoNums(){
 
+		int[] lottoNums = generateRandomLottoNums();
+		while(checkOldLottoNums(lottoNums)){
+			lottoNums = generateRandomLottoNums();
+		}
+		return lottoNums;
+	}
 
+	public boolean checkOldLottoNums(int[] lottoNums){
+		boolean isOldLottoNums = false;
+		int[] sortedLottoNums = lottoNums;
+		Arrays.sort(sortedLottoNums); //sort first to check for true equivalency
+		//System.out.println(intArrToString(sortedLottoNums));
+
+		for(int i = 0; i < prevLottoNums.size(); i++){
+			int[] sortedOldNums = prevLottoNums.get(i).getLottoNums();
+			Arrays.sort(sortedOldNums); //same note as above
+			//System.out.println(intArrToString(sortedOldNums));
+			if(Arrays.equals(lottoNums, sortedOldNums)){
+				isOldLottoNums = true;
+				//System.out.println("RED FLAG BRUH");
+			}
+		}
+
+		return isOldLottoNums;
+	}
+
+	public int[] generateRandomLottoNums(){
+		Random r = new Random();
+		int[] lottoNums = new int[4];
+		for(int i = 0; i < lottoNums.length; i++){
+			lottoNums[i] = r.nextInt(10);
+		}
+		return lottoNums;
+	}
+
+	public String intArrToString(int[] intArr){
+
+		String str = "[";
+		for(int i = 0; i < intArr.length; i++){
+			str = str + intArr[i] + " ";
+		}
+		str = str.trim() + "]";
+		return str;
+	}
 
 }
