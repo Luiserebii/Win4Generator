@@ -50,7 +50,7 @@
             <Button fx:id="generateButton" mnemonicParsing="false" onAction="#generateLottoNums" text="Generate!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
             <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updatePopup" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
             <Label id="dateLabel" fx:id="dateLabel" text="Latest Win4 Date:  /  /  " GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button id="settingsButton" fx:id="settingsButton" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#openSettings" GridPane.columnIndex="2" />
+            <Button id="settingsButton" fx:id="settingsButton" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#openSettings" onMouseEntered="#enterSettingsButton" onMouseExited="#exitSettingsButton" GridPane.columnIndex="2" />
          </children>
       </GridPane>
       <Label layoutX="-367.0" layoutY="6.0" text="Label" />

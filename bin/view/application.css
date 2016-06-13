@@ -43,6 +43,14 @@ Button:hover {
 	-fx-cursor: hand;
 }
 
+#settingsButton {
+	-fx-background-color: white;
+}
+
+#settingsButton:hover {
+	-fx-background-color: white;
+}
+
 /*------------------Settings GUI Styling---------------------*/
 
 #settingsLabel {

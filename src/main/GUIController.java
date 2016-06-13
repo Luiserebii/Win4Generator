@@ -22,6 +22,8 @@ public class GUIController implements Initializable {
 	Win4Generator wg;
 	GUILauncher gl;
 
+	ImageView imgView;
+
 	@FXML
 	private ImageView logoImage;
 
@@ -40,15 +42,12 @@ public class GUIController implements Initializable {
 	@FXML
 	private Button settingsButton;
 
-	@FXML
-	private ImageView settingsImage;
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		try {
 			logoImage.setImage(new Image(new File("img/win4.png").toURI().toURL().toString()));
-			ImageView imgView = new ImageView(new Image(new File("img/settings_gear2.png").toURI().toURL().toString(), 40, 40, true, true));
+			imgView = new ImageView(new Image(new File("img/settings_gear2.png").toURI().toURL().toString(), 40, 40, true, true));
 			imgView.setFitWidth(40);
 			imgView.setFitHeight(40);
 			settingsButton.setGraphic(imgView);
@@ -104,6 +103,26 @@ public class GUIController implements Initializable {
 	 @FXML
 	 public void updatePopup(){
 		 gl.updatePopup();
+	 }
+
+	 @FXML
+	 public void enterSettingsButton(){
+		 try {
+			imgView.setImage(new Image(new File("img/settings_gear2_gray.png").toURI().toURL().toString(), 40, 40, true, true));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 }
+
+	 @FXML
+	 public void exitSettingsButton(){
+		 try {
+			imgView.setImage(new Image(new File("img/settings_gear2.png").toURI().toURL().toString(), 40, 40, true, true));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	 }
 
 
