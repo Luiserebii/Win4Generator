@@ -1,4 +1,4 @@
-package win4;
+package settings;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import win4.Win4Generator;
 
 public class SettingsGUIController implements Initializable {
 
@@ -15,7 +16,8 @@ public class SettingsGUIController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		//Set settings as they are in Win4Generator
+		orderMattersBox.setSelected(Win4Generator.isOrderMatters);
 	}
 
 	@FXML
