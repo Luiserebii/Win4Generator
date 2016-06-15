@@ -3,6 +3,7 @@ package update;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,8 +26,9 @@ public class UpdateGUIController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		uh = new UpdateHandler(this);
-		Thread t = new Thread(uh);
-		t.start();
+//		Thread t = new Thread(uh);
+//		t.start();
+		Platform.runLater(uh);
 		//uh.updateWinningNumbers();
 	}
 
