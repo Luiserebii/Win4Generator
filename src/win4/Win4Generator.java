@@ -12,6 +12,8 @@ public class Win4Generator {
 	private ArrayList<LottoNum> prevLottoNums;
 	public static boolean isOrderMatters; //to allow access from settings; considering making class Singleton, with static stuff
 
+	private String latestDate;
+
 	public Win4Generator(){
 		prevLottoNums = new ArrayList<LottoNum>();
 		isOrderMatters = true;
@@ -33,6 +35,7 @@ public class Win4Generator {
 				prevLottoNums.add(new LottoNum(d, nums));
 				reader.readLine();
 			}
+			reader.close();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -97,6 +100,27 @@ public class Win4Generator {
 		}
 		str = str.trim() + "]";
 		return str;
+	}
+
+	public void updateLatestDate(){
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("data/winners.txt"));
+			String currLine = reader.readLine();
+			latestDate = currLine.substring(0, currLine.trim().indexOf(" "));
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public String getLatestDate(){
+		return latestDate;
+	}
+
+	public String loadLatestDate(){
+		updateLatestDate();
+		return getLatestDate();
 	}
 
 }

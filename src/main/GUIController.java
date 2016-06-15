@@ -28,7 +28,7 @@ public class GUIController implements Initializable {
 	private ImageView logoImage;
 
 	@FXML
-	private Label logoLabel;
+	private Label logoLabel, dateLabel;
 
 	@FXML
 	private GridPane numberPane;
@@ -58,6 +58,7 @@ public class GUIController implements Initializable {
 		wg = new Win4Generator();
 		//wg.updateWinningNumbers();
 		wg.loadPrevLottoNums();
+		setLatestDate();
 
 //		DebugWin4Generator debug = new DebugWin4Generator();
 //		debug.loadStuff();
@@ -87,6 +88,10 @@ public class GUIController implements Initializable {
 	            }
 	        }
 	        return result;
+	 }
+
+	 public void setLatestDate(){
+		 dateLabel.setText("Latest Win4 Date: " + wg.loadLatestDate());
 	 }
 
 	 @FXML

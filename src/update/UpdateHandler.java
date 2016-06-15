@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javafx.stage.Stage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -98,10 +99,13 @@ public class UpdateHandler implements Runnable {
 				}
 				System.out.println("Page " + i + " processed!");
 				uc.setProgress(((double) i )/pageCnt);
+				System.out.println(((double) i * 100 )/pageCnt + "%");
 			}
 			writer.close();
 			driver.close();
 			System.out.println("FINISHED!");
+
+			((Stage) uc.getUpdateBar().getScene().getWindow()).close();
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

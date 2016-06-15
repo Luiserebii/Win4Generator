@@ -3,7 +3,6 @@ package update;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -26,10 +25,13 @@ public class UpdateGUIController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		uh = new UpdateHandler(this);
-//		Thread t = new Thread(uh);
-//		t.start();
-		Platform.runLater(uh);
+		Thread t = new Thread(uh);
+		t.start();
 		//uh.updateWinningNumbers();
+	}
+
+	public ProgressBar getUpdateBar(){
+		return updateBar;
 	}
 
 	public void setProgress(double x){ //takes double 0.00, sets updateBar and percentageLabel - 0.00 to 1.0
