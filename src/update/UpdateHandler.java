@@ -10,9 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class UpdateHandler {
+public class UpdateHandler implements Runnable {
 
 	private WebDriver driver;
 	private UpdateGUIController uc;
@@ -21,10 +22,21 @@ public class UpdateHandler {
 		uc = inUC;
 	}
 
+	public void run(){
+		updateWinningNumbers();
+	}
+
 	public void updateWinningNumbers(){
 
 		try {
-			driver = new FirefoxDriver();
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		try {
+			driver = new PhantomJSDriver();
 
 			driver.navigate().to("http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/winning+numbers/win4pastwinning+numbers");
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

@@ -26,7 +26,7 @@
          <children>
             <Label fx:id="titleLabel" text="Updating..." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <ProgressBar fx:id="updateBar" prefWidth="300.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="percentLabel" text="---%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <Label fx:id="percentageLabel" text="---%" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="40.0" />
                </GridPane.margin>

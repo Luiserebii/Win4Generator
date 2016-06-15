@@ -25,7 +25,9 @@ public class UpdateGUIController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		uh = new UpdateHandler(this);
-		uh.updateWinningNumbers();
+		Thread t = new Thread(uh);
+		t.start();
+		//uh.updateWinningNumbers();
 	}
 
 	public void setProgress(double x){ //takes double 0.00, sets updateBar and percentageLabel - 0.00 to 1.0
