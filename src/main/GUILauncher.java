@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 public class GUILauncher {
 
 	public void updatePopup(){
-		popup("../view/UpdateGUI.fxml", "../view/application.css", "Updating...");
+		popup("/view/UpdateGUI.fxml", "/view/application.css", "Updating...");
 	}
 
 	public void settingsPopup(){
-		popup("../view/SettingsGUI.fxml", "../view/application.css", "Settings");
+		popup("/view/SettingsGUI.fxml", "/view/application.css", "Settings");
 	}
 
 	public void popup(String fxmlPath, String cssPath, String title){
