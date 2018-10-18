@@ -21,6 +21,7 @@ Put simply, clicking the "Update" button will update the data/winners.txt file. 
 
 ### Settings:
 Clicking the gear in the top right will launch the access to the settings:
+<br>
 <div align="center"><img src="https://i.imgur.com/qZvIgxY.png"/></div><br>
 Image of the Settings GUI
 
