@@ -1,7 +1,7 @@
-Win4Generator
-A Win 4 Lotto Number Generator implemented in JavaFX, along with Selenium for website parsing. 
+# Win4Generator
+A Win 4 Lotto Number Generator implemented in JavaFX, along with Selenium for website parsing. <br>
 
-The central idea behind this application is to provide randomly generated lotto numbers that have not been used in the past, under the assumption that previous lotto numbers are not used. From a pure probability standpoint, this idea is mathematically incorrect, but makes for an interesting idea nonetheless.
+The central idea behind this application is to provide randomly generated lotto numbers that have not been used in the past, under the assumption that previous lotto numbers are not used. From a pure probability standpoint, this idea is mathematically incorrect, but makes for an interesting idea nonetheless. <br>
 
 Since the page for finding the previous winning Win 4 numbers only really works by interfacing with a web UI (need to interact with a web app), I used Selenium's PhantomJSDriver to virtually browse and parse the webpage for the winning numbers, which is then saved in the "data" directory as a .txt file. 
 
