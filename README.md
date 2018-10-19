@@ -14,10 +14,7 @@ Image of the Win4Generator GUI
 
 
 ###### *NOTE:* This software was written for the Win 4 page as it appeared from 2016-2017. This application may not update correctly with the current version of the page, should it have changed. 
-
-<br>
-<br>
-
+-----------------------------------------------------------------------------------------
 ## Features
 
 ### Win 4 Number Generation: 
@@ -35,6 +32,7 @@ Image of the Settings GUI
 #### Order Matters
 By default, the program will have this setting checked off. The Win 4 numbers follow a particular order, and if one wishes to exclude number combinations that have been used (regardless of order), this setting can be toggled to off. Therefore, keeping this on will simply reject randomly generated lotto numbers if they match exactly, but not if they use the same pool of integers.
 
+-----------------------------------------------------------------------------------------
 
 ## Future Implementation
 * Ability to turn filtering of previously used values entirely
